@@ -3,7 +3,7 @@
 const webpack = require("webpack");
 
 module.exports = {
-    context: __dirname + "/src",
+    context: __dirname,
     entry: {
         app: "./index.js"
     },
@@ -13,7 +13,7 @@ module.exports = {
         publicPath: "/assets", // New
     },
     devServer: {
-        contentBase: __dirname + "/src", // New
+        contentBase: __dirname, // New
     },
     module: {
         rules: [
@@ -28,6 +28,10 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+              test: /\.css$/,
+              use: ["style-loader", "css-loader"],
             }
         ]
     },
