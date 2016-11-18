@@ -3,3 +3,47 @@ body {
   margin: 0;
   background-color: white;
 }
+.header-top {
+  display:block;
+  background-color: #03A9F4;
+  height: 150px;
+}
+
+.headertext-Container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  height: 100%;
+  width: 200px;
+}
+
+.headertext-Container strong {
+  margin-bottom: 20px;
+}
+
+.wrap {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  min-height: 900px;
+  margin-top: -90px;
+}
+
+.main-menu {
+  min-width: 200px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-center {
+  align-items: center;
+  align-content: center;
+}
