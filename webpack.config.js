@@ -13,6 +13,7 @@ module.exports = {
         publicPath: "/assets", // New
     },
     devServer: {
+        historyApiFallback: true,
         contentBase: __dirname, // New
     },
     module: {

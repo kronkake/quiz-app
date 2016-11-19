@@ -15,6 +15,9 @@ import './styles/global.css';
 
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
+import configureStore from './src/store/configureStore';
+import {Provider} from 'react-redux';
+
 import App from './src/app.js';
 
 import Questions from './src/components/questions';
@@ -22,6 +25,8 @@ import SetupQuiz from './src/components/setupquiz';
 import Users from './src/components/users';
 
 injectTapEventPlugin();
+
+const store = configureStore();
 
 const muiTheme =  getMuiTheme({
   fontFamily: 'Roboto, sans-serif',
@@ -44,13 +49,15 @@ const muiTheme =  getMuiTheme({
 });
 
 ReactDOM.render(
-<MuiThemeProvider muiTheme={muiTheme}>
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={SetupQuiz} />
-      <Route path="questions" component={Questions}/>
-      <Route path="users" component={Users}/>
-    </Route>
-  </Router>
-  </MuiThemeProvider>,
+  <Provider store={store}>
+    <MuiThemeProvider muiTheme={muiTheme}>
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={SetupQuiz} />
+          <Route path="questions" component={Questions}/>
+          <Route path="users" component={Users}/>
+        </Route>
+      </Router>
+      </MuiThemeProvider>
+  </Provider>,
 document.getElementById('react-root'));

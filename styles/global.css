@@ -33,6 +33,12 @@ body {
   min-width: 200px;
 }
 
+.container {
+  width: 100%;
+  padding: 10px;
+  
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
