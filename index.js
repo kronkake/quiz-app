@@ -16,6 +16,7 @@ import './styles/global.css';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 import configureStore from './src/store/configureStore';
+import { getUsers } from './src/actions/userActions.js';
 import {Provider} from 'react-redux';
 
 import App from './src/app.js';
@@ -27,6 +28,7 @@ import Users from './src/components/users';
 injectTapEventPlugin();
 
 const store = configureStore();
+store.dispatch(getUsers());
 
 const muiTheme =  getMuiTheme({
   fontFamily: 'Roboto, sans-serif',

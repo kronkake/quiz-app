@@ -29,15 +29,23 @@ class Users extends Component {
     this.props.actions.createUser(this.state.user);
   }
 
-  userRow(user, index) {
-    return <div key={index}>
-      <p>Username: {user.username}</p>
-      <p>Profile Picture: {user.profilePic}</p>
-      <br></br>
-    </div>
+  userRow(users) {
+    let tempArray = [];
+    let i = 0;
+    for (let user in this.props.users) {
+      tempArray.push(<div key={i}>
+        <p>Username: {this.props.users[user].username}</p>
+        <p>Profile Picture: {this.props.users[user].profilePic}</p>
+        <br></br>
+      </div>);
+      i++;
+    }
+    return tempArray
   }
 
     render() {
+      console.log(this.props);
+      const users = this.userRow(this.props.users);
         return (
             <div className="flex-column container content-center">
                 <h3>Add User</h3>
@@ -55,7 +63,7 @@ class Users extends Component {
                 />
                 <RaisedButton onClick={this.addUser} label="Add User" primary={true} />
                 <h3>Overview</h3>
-                {this.props.users.map(this.userRow)}
+                {users}
             </div>
         );
     }
